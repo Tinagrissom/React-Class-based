@@ -11,6 +11,18 @@ class Users extends Component {
       moreState: 'Test'
     }
   }
+
+  componentDidUpdate() {
+    // try {
+    //   someCodeWhichMightFail()
+    // } catch (error) {
+    //   handle error
+    // }
+    if (this.props.users.length === 0) {
+      throw new Error('No users provided!')
+      // generating an error, will crash the site if no user is added to the search
+    }
+  }
   
   toggleUsersHandler() {
     this.setState((curState) => {
